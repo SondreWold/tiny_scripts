@@ -1,0 +1,3 @@
+slurm_id=$(squeue --me | awk 'FNR == 2 {print $1}')
+echo $slurm_id
+tail -f slurm-$slurm_id.out
