@@ -1,9 +1,15 @@
 let g:ale_completion_enabled = 1
 let g:ale_linters = {'rust':['analyzer'], 'haskell': ['hlint', 'hdevtools', 'hfmt'], 'python': ['pyright']}
 
+" leader
+let mapleader = "@"
+
 " BASICS
 set nocompatible
+:set noswapfile
 set hlsearch
+set nobackup
+set ruler
 set ai
 filetype plugin indent on
 set number
@@ -22,8 +28,10 @@ Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim'
 Plug 'lervag/vimtex'
 Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "fzf
+Plug 'junegunn/fzf.vim' "fzf.vim
 call plug#end()
-colorscheme habamax
+colorscheme apprentice
 
 " LATEX VIEWER
 let g:vimtex_view_method='skim'
@@ -45,3 +53,14 @@ set noshowmode
 let g:lightline = {
       \ 'colorscheme': 'nord',
       \ }
+
+" fzf
+set rtp+=/opt/homebrew/bin/fzf
+nnoremap <leader><Tab> :GFiles<CR>
+nnoremap <leader><S-Tab> :tabnew<CR>:GFiles<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>F :tabnew<CR>:Files<CR>
+nnoremap <leader>v :vs<CR>:Files<CR>
+nnoremap <leader>h :split<CR>:Files<CR>
+nnoremap <leader>g :Rg<CR>
+nnoremap <leader>G :tabnew<CR>:Rg<CR>
