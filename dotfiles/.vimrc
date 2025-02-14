@@ -1,5 +1,7 @@
+" Ale linters
 let g:ale_completion_enabled = 1
-let g:ale_linters = {'rust':['analyzer'], 'haskell': ['hlint', 'hdevtools', 'hfmt'], 'python': ['pyright']}
+let g:ale_linters = {'rust':['analyzer'], 'python': ['pylsp']}
+let g:ale_python_pyls_executable = 'pylsp'
 
 " leader
 let mapleader = "@"
@@ -24,9 +26,9 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 syntax on
 filetype on
 call plug#begin('~/.vim/plugged')
-Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim'
 Plug 'lervag/vimtex'
+Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "fzf
 Plug 'junegunn/fzf.vim' "fzf.vim
