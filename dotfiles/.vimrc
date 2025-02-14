@@ -1,6 +1,6 @@
 " Ale linters
 let g:ale_completion_enabled = 1
-let g:ale_linters = {'rust':['analyzer'], 'python': ['pylsp']}
+let g:ale_linters = {'rust':['analyzer'], 'python': ['pylsp', 'flake8', 'mypy']}
 let g:ale_python_pyls_executable = 'pylsp'
 
 " leader
