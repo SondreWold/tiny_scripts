@@ -9,6 +9,7 @@ let mapleader = "@"
 set backspace=indent,eol,start
 
 " BASICS
+set encoding=utf-8
 set nocompatible
 set noswapfile
 set hlsearch
@@ -21,6 +22,7 @@ set visualbell t_vb=
 set cursorline
 set relativenumber
 set shortmess-=S
+set termguicolors
 
 " Remaps
 " Search and replace with ctrl-r 
@@ -30,14 +32,16 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 syntax enable
 filetype on
 call plug#begin('~/.vim/plugged')
+Plug 'arcticicestudio/nord-vim'
 Plug 'rust-lang/rust.vim'
 Plug 'lervag/vimtex'
 Plug 'dense-analysis/ale'
-Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "fzf
 Plug 'junegunn/fzf.vim' "fzf.vim
 call plug#end()
-colorscheme apprentice
+
+" Theme
+colorscheme nord
 
 " LATEX VIEWER
 let g:vimtex_view_method='skim'
@@ -55,9 +59,6 @@ map <left> <nop>
 " STATUSLINE
 set laststatus=2
 set noshowmode
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ }
 
 " fzf
 set rtp+=/opt/homebrew/bin/fzf
