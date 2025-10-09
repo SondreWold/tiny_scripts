@@ -1,6 +1,7 @@
 " Ale linters
 let g:ale_completion_enabled = 1
 let g:ale_linters = {'rust':['analyzer'], 'python': ['pyright', 'mypy']}
+set updatetime=300
 
 " leader
 let mapleader = "@"
@@ -10,8 +11,8 @@ set backspace=indent,eol,start
 
 " BASICS
 set encoding=utf-8
-set nocompatible
 set noswapfile
+set incsearch
 set hlsearch
 set nobackup
 set ruler
@@ -27,6 +28,7 @@ set termguicolors
 " Remaps
 " Search and replace with ctrl-r 
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+nnoremap <leader><space> :nohlsearch<CR>
 
 " CODE SUPPORT
 syntax enable
@@ -45,6 +47,14 @@ colorscheme nord
 
 " LATEX VIEWER
 let g:vimtex_view_method='skim'
+
+" Better spell checking for LaTeX
+autocmd FileType tex setlocal spell spelllang=en_us
+
+" Faster compilation with continuous mode
+let g:vimtex_compiler_latexmk = {
+    \ 'continuous' : 1,
+    \}
 
 " ENFORCE VIMism
 imap <up> <nop>
