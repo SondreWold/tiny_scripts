@@ -70,3 +70,17 @@ nnoremap <leader>v :vs<CR>:Files<CR>
 nnoremap <leader>h :split<CR>:Files<CR>
 nnoremap <leader>g :Rg<CR>
 nnoremap <leader>G :tabnew<CR>:Rg<CR>
+
+
+"Vimtex statusline hack
+function! VimtexCompilerStatus()
+    if exists('b:vimtex') && has_key(b:vimtex, 'compiler')
+        if get(b:vimtex.compiler, 'status', -1) == 1
+            return '[COMPILING]'
+        elseif b:vimtex.compiler.is_running()
+            return '[IDLE]'
+        endif
+    endif
+    return ''
+endfunction
+set statusline=%f\ %h%w%m%r\ %{VimtexCompilerStatus()}%=%(%l,%c%V\ %=\ %P%)
