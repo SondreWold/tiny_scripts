@@ -10,7 +10,7 @@ set backspace=indent,eol,start
 
 " BASICS
 set nocompatible
-:set noswapfile
+set noswapfile
 set hlsearch
 set nobackup
 set ruler
@@ -20,12 +20,14 @@ set number
 set visualbell t_vb=
 set cursorline
 set relativenumber
+set shortmess-=S
 
+" Remaps
 " Search and replace with ctrl-r 
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " CODE SUPPORT
-syntax on
+syntax enable
 filetype on
 call plug#begin('~/.vim/plugged')
 Plug 'rust-lang/rust.vim'
@@ -45,7 +47,6 @@ imap <up> <nop>
 imap <down> <nop>
 imap <right> <nop>
 imap <left> <nop>
-
 map <up> <nop>
 map <down> <nop>
 map <right> <nop>
